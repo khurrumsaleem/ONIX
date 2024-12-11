@@ -1108,9 +1108,9 @@ class Couple_openmc(object):
         #uniform_dist = openmc.stats.Box(ll, ur, only_fissionable=True)
         if source is None:
             point = openmc.stats.Point(xyz=(0.0, 0.0, 0.0))
-            settings.source = openmc.source.Source(space=point)
+            settings.source = openmc.source.IndependentSource(space=point)
         else:
-            settings.source = openmc.source.Source.from_xml_element(source)
+            settings.source = openmc.source.IndependentSource.from_xml_element(source)
         # To reduce the size of the statepoint file
         settings.sourcepoint['write'] = False
 
